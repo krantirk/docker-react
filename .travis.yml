@@ -1,7 +1,8 @@
+language: generic
 sudo: required
 services:
     - docker
 before_install:
     - docker build -t singhabhinav/docker-react-dev -f Dockerfile.dev .
 script:
-    - docker run singhabhinav/docker-react-dev npm run test -- --coverage
+    - docker run -e CI=true singhabhinav/docker-react-dev npm run test
